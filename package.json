@@ -1,0 +1,69 @@
+{
+    "name": "xo-decoder",
+    "displayName": "Xo Decoder",
+    "description": "Decode hex and unicode escape sequences found in source files, fully offline, no telemetry.",
+    "version": "1.0.0",
+    "publisher": "xodobyte",
+    "engines": {
+        "vscode": "^1.136.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "main": "./out/extension.js",
+    "activationEvents": [
+        "onCommand:xoDecoder.decodeTokenUnderCursor",
+        "onCommand:xoDecoder.decodeSelection",
+        "onCommand:xoDecoder.decodeEntireFile",
+        "onLanguage:javascript",
+        "onLanguage:typescript",
+        "onLanguage:python",
+        "onLanguage:c",
+        "onLanguage:cpp",
+        "onLanguage:plaintext"
+    ],
+    "contributes": {
+        "commands": [
+            {
+                "command": "xoDecoder.decodeTokenUnderCursor",
+                "title": "Xo Decoder: Decode Token Under Cursor"
+            },
+            {
+                "command": "xoDecoder.decodeSelection",
+                "title": "Xo Decoder: Decode Selected Text"
+            },
+            {
+                "command": "xoDecoder.decodeEntireFile",
+                "title": "Xo Decoder: Decode All In File"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "xoDecoder.decodeTokenUnderCursor",
+                "key": "alt+d",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "xoDecoder.decodeSelection",
+                "key": "shift+alt+d",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "xoDecoder.decodeEntireFile",
+                "key": "ctrl+shift+alt+d",
+                "when": "editorTextFocus"
+            }
+        ]
+    },
+    "enableTelemetry": false,
+    "isTrusted": false,
+    "scripts": {
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./"
+    },
+    "devDependencies": {
+        "@types/node": "^26.6.2",
+        "@types/vscode": "^1.136.0",
+        "typescript": "^7.0.2"
+    }
+}
